@@ -1,0 +1,710 @@
+@import "reset.css";
+
+* {
+	box-sizing: border-box;
+	outline: none;
+}
+
+html {
+	font-size: 100%;
+	font-family: "ubuntu", "Vazir";
+}
+
+body {
+	background-color: #202125;
+}
+
+/* Start Custom Scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(transparent, cyan);
+	border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(transparent, rgb(48, 167, 167));
+	border-radius: 6px;
+}
+
+/* End Custom Scrollbar */
+
+/* Start Container */
+.container,
+.container-fluid,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-xxl {
+	width: 100%;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@media (min-width: 576px) {
+	.container,
+	.container-sm {
+		max-width: 540px;
+	}
+}
+
+@media (min-width: 768px) {
+	.container,
+	.container-sm,
+	.container-md {
+		max-width: 720px;
+	}
+}
+
+@media (min-width: 992px) {
+	.container,
+	.container-sm,
+	.container-md,
+	.container-lg {
+		max-width: 960px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container,
+	.container-sm,
+	.container-md,
+	.container-lg,
+	.container-xl {
+		max-width: 1140px;
+	}
+}
+
+@media (min-width: 1400px) {
+	.container,
+	.container-sm,
+	.container-md,
+	.container-lg,
+	.container-xl,
+	.container-xxl {
+		max-width: 1320px;
+	}
+}
+/* End Container */
+
+/* Start Header */
+#header {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 35px;
+}
+
+#header form {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#note-box {
+	width: 60%;
+	border: 2px solid cyan;
+	padding: 12px;
+	line-height: 1.8;
+	background-color: #202125;
+	color: white;
+	font-family: "Vazir";
+	font-size: 0.9rem;
+	resize: vertical;
+	word-wrap: break-word;
+}
+
+#title-box {
+	width: 60%;
+	height: 100%;
+	border: 2px solid cyan;
+	padding: 12px;
+	line-height: 1.8;
+	background-color: #202125;
+	color: white;
+	border-bottom: none;
+	font-size: 0.95rem;
+	word-wrap: break-word;
+	display: none;
+}
+
+#title-box.active {
+	display: block;
+}
+
+#note-box-buttons {
+	width: 60%;
+	display: flex;
+	flex-direction: row;
+	border: 2px solid cyan;
+	border-top: none;
+	display: none;
+}
+
+#save-btn,
+#close-btn {
+	width: 49.5%;
+	padding: 12px 30px;
+	background-color: transparent;
+	border: none;
+	color: white;
+	font-size: 15px;
+	font-family: "ubuntu";
+	transition: all 0.2s;
+	cursor: pointer;
+	display: inline-flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-items: center;
+}
+
+#save-btn:hover,
+#close-btn:hover {
+	background-color: rgba(99, 99, 99, 0.212);
+}
+
+#save-btn ion-icon {
+	font-size: 25px;
+	padding-right: 5px;
+}
+
+#close-btn ion-icon {
+	font-size: 22px;
+	padding-right: 5px;
+}
+
+#note-box-buttons.active {
+	display: block;
+}
+
+#note-box::-webkit-scrollbar {
+	width: 1em;
+}
+
+#note-box::-webkit-scrollbar-track {
+	border-radius: 20px;
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#note-box::-webkit-scrollbar-thumb {
+	background-color: rgb(104, 104, 104);
+	border-radius: 20px;
+}
+#note-box::-webkit-scrollbar-corner {
+	background-color: cyan;
+	border-top-right-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-bottom-left-radius: 50%;
+}
+
+#note-box::-webkit-scrollbar-button {
+	display: hidden;
+}
+
+#note-box::-webkit-scrollbar-thumb:hover {
+	background-color: rgb(66, 65, 65);
+}
+
+#note-box::-webkit-resizer {
+	background-color: cyan;
+	border-top-right-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-bottom-left-radius: 50%;
+	border: none;
+}
+/* End Header */
+
+.divider {
+	border-bottom: 1px dashed #ccc;
+	opacity: 0.3;
+	margin-top: 50px;
+}
+
+#empty-alert {
+	display: flex;
+	justify-content: center;
+	color: white;
+	opacity: 0.5;
+	user-select: none;
+	display: none;
+}
+
+/* Start Pinned list */
+#pinned-list {
+	align-items: flex-start;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	display: flex;
+	margin-top: 2rem;
+	display: none;
+}
+
+#pinned-list-title {
+	position: relative;
+	top: 17px;
+	color: white;
+	font-size: 0.9rem;
+	display: none;
+	align-items: center;
+}
+
+#pinned-list-title ion-icon {
+	margin-right: 7px;
+}
+
+#divider-pinned-list {
+	display: none;
+}
+/* End Pinned list */
+
+/* Start Note List */
+
+#note-list {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin-top: 2rem;
+}
+
+#note-list.active {
+	display: none;
+}
+
+.note-card {
+	width: 23.9%;
+	height: auto;
+	position: relative;
+	background-color: #202125;
+	padding: 5px;
+	color: white;
+	line-height: 1.8;
+	font-size: 0.9rem;
+	margin: 30px 5px;
+	word-wrap: break-word;
+	display: flex;
+	flex-direction: column;
+}
+
+.note-card::before {
+	content: "";
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	right: -2px;
+	bottom: -2px;
+	transform: skew(2deg, 2deg);
+	transition: all 0.2s;
+	z-index: -1;
+	background: linear-gradient(to right, #02f7ff, #1cd8d2);
+}
+
+.note-card:hover::before {
+	top: -6px;
+	left: -6px;
+	right: -6px;
+	bottom: -6px;
+}
+
+.note-card.green::before {
+	background: linear-gradient(to right, #93f9b9, #1d976c);
+}
+
+.note-card.pink::before {
+	background: linear-gradient(to right, #dd2476, #ff512f);
+}
+.note-card.yellow::before {
+	background: linear-gradient(to right, #f09819, #edde5d);
+}
+
+.note-card.rose::before {
+	background: linear-gradient(to right, #5fc3e4, #e55d87);
+}
+
+.note-card.orange::before {
+	background: linear-gradient(to right, #e65c00, #f9d423);
+}
+
+.note-card.red::before {
+	background: linear-gradient(to right, #ea384d, #d31027);
+}
+
+.note-card::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.034);
+	pointer-events: none;
+}
+
+.note-card .title-note-card {
+	padding: 10px;
+	border-bottom: 1px dashed rgba(204, 204, 204, 0.445);
+}
+
+.note-card .body-note-card {
+	padding: 10px;
+}
+
+.remove-btn {
+	width: 40px;
+	height: 40px;
+	top: 5px;
+	right: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	text-decoration: none;
+	color: red;
+	font-size: 2.2rem;
+	transition: all 0.3s;
+	border-radius: 50px;
+	display: none;
+	cursor: pointer;
+}
+
+.remove-btn:hover {
+	background-color: rgb(131, 131, 131);
+}
+
+.edit-btn {
+	width: 25px;
+	height: 25px;
+	margin-right: 40px;
+	padding: 10px;
+	top: 3px;
+	right: 10px;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	transition: all 0.3s;
+	border-radius: 50px;
+	cursor: pointer;
+	display: none;
+}
+
+.pin-btn {
+	width: 25px;
+	height: 25px;
+	margin-right: 85px;
+	padding: 10px;
+	top: 4px;
+	right: 10px;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	transition: all 0.3s;
+	border-radius: 50px;
+	cursor: pointer;
+	display: none;
+}
+
+.edit-btn:hover {
+	background-color: rgb(131, 131, 131);
+}
+
+.pin-btn:hover {
+	background-color: rgb(131, 131, 131);
+}
+
+.note-card:hover .remove-btn {
+	display: flex;
+}
+
+.note-card:hover .edit-btn {
+	display: flex;
+}
+
+.note-card:hover .pin-btn {
+	display: flex;
+}
+
+.title-class {
+	display: none;
+}
+
+/* End Note List */
+
+/*  Start Overlay | Form in Mobile Mode  */
+#add-note-btn-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+#add-note-btn {
+	display: none;
+	position: fixed;
+	bottom: 25px;
+	right: 25px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	border: none;
+	font-size: 1.7rem;
+	background-color: #202125;
+	color: cyan;
+	box-shadow: 0 0 5px 2px cyan;
+	cursor: pointer;
+	transition: all 0.4s;
+	z-index: 10;
+}
+
+#add-note-btn:hover {
+	box-shadow: 0 0 5px 4px cyan;
+	background-color: #3d3d3d;
+}
+
+#add-note-btn.active {
+	box-shadow: 0 0 5px 5px red;
+	color: red;
+	content: "&times;";
+	transform: rotate(225deg);
+	font-size: 2.4rem;
+}
+
+#overlay {
+	position: fixed;
+	bottom: 25px;
+	right: 25px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: #0e0e0e;
+	transition: all 0.3s;
+	display: none;
+	overflow: hidden;
+}
+
+#overlay.active {
+	transform: scale(80, 80);
+	z-index: 6;
+}
+
+.form-title {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	align-items: flex-start;
+	margin: -5px 0 30px 0;
+}
+
+#form-overlay {
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: relative;
+	z-index: 7;
+}
+
+#form-overlay.active {
+	display: flex;
+	flex-direction: column;
+}
+
+#title-overlay-box {
+	width: 100%;
+	height: 67px;
+	padding: 12px;
+	line-height: 1.8;
+	box-shadow: 0 0 7px 2px cyan;
+	background-color: #1e1e1e;
+	color: white;
+	font-size: 1rem;
+	word-wrap: break-word;
+	border: none;
+}
+
+#note-overlay-box {
+	width: 100%;
+	height: 300px;
+	padding: 12px;
+	line-height: 1.8;
+	background-color: #1e1e1e;
+	color: white;
+	font-family: "Vazir";
+	font-size: 1rem;
+	resize: vertical;
+	box-shadow: 0 0 7px 2px cyan;
+	word-wrap: break-word;
+}
+
+#note-ol-box-buttons {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	box-shadow: 0 0 7px 2px cyan;
+	border: none;
+}
+
+#save-overlay-btn,
+#close-overlay-btn {
+	width: 50%;
+	padding: 18px 30px;
+	background-color: transparent;
+	border: none;
+	color: white;
+	font-size: 15px;
+	font-family: "ubuntu";
+	transition: all 0.2s;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 17px;
+	flex-direction: row-reverse;
+}
+
+#save-overlay-btn ion-icon {
+	font-size: 25px;
+	padding-right: 8px;
+}
+
+#close-overlay-btn ion-icon {
+	font-size: 23px;
+	padding-right: 8px;
+}
+
+.form-title span {
+	color: white;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+#close-btn:hover,
+#close-overlay-btn:hover {
+	background-color: rgba(209, 0, 0, 0.212);
+}
+
+#save-btn:hover,
+#save-overlay-btn:hover {
+	background-color: rgba(15, 110, 74, 0.212);
+}
+
+/*  End Overlay | Form in Mobile Mode  */
+
+/* Start Random Border Color toggle Switch */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+	top: 40px;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+input:checked + .slider {
+	background: linear-gradient(to right, #8a2387, #e94057, #f27121);
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+
+/* End Random Border Color toggle Switch */
+
+/* Start SweetAlert2 Styles */
+.swal2-textarea {
+	resize: vertical;
+	color: white !important;
+	border: 2px solid cyan !important;
+	font-family: "Vazir", "Ubuntu";
+	font-size: 1rem !important;
+}
+
+#swal-input1 {
+	color: white !important;
+	border: 2px solid cyan !important;
+}
+
+.swal2-confirm,
+.swal2-cancel {
+	border-radius: 50px !important;
+	width: 45%;
+}
+
+.swal2-confirm {
+	background-color: rgb(9, 187, 187) !important;
+}
+/* End SweetAlert2 Styles */
+
+@media screen and (max-width: 992px) {
+	#header {
+		display: none;
+	}
+
+	.note-card {
+		width: 48.5%;
+	}
+	.remove-btn {
+		display: flex;
+	}
+
+	.edit-btn {
+		display: flex;
+	}
+
+	.pin-btn {
+		display: flex;
+	}
+
+	#add-note-btn {
+		display: inline-block;
+	}
+
+	#overlay {
+		display: flex;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.note-card {
+		width: 100%;
+	}
+}

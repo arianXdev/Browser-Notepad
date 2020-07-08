@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/fonts/font-face.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Browser Notepad</title>
+</head>
+
+<body>
+
+    <div class="container ">
+        <!-- Start Overlay | Form in Mobile Mode -->
+        <div id="overlay"></div>
+
+
+        <!-- Start Random Border Color toggle Switch -->
+        <label class="switch">
+            <input type="checkbox" id="rand-border-toggle">
+            <span class="slider"></span>
+        </label>
+        <!-- End Random Border Color toggle Switch -->
+
+
+        <form action="#" id="form-overlay">
+            <div class="form-title">
+                <span>افزودن یادداشت جدید</span>
+            </div>
+
+            <input type="text" dir="auto" id="title-overlay-box" placeholder="Title" autocomplete="off">
+            <textarea class="" dir="auto" id="note-overlay-box" autocomplete="off"
+                placeholder="Take a note..."></textarea>
+
+            <div id="note-ol-box-buttons">
+                <button type="submit" id="save-overlay-btn">Save
+                    <ion-icon name="add-outline"></ion-icon>
+                </button>
+                <button type="button" id="close-overlay-btn">Close
+                    <ion-icon name="trash-outline"></ion-icon>
+                </button>
+            </div>
+        </form>
+
+        <div class="add-note-btn-container">
+            <button id="add-note-btn">+</button>
+        </div>
+        <!-- End Overlay | Form in Mobile Mode -->
+
+        <div id="header">
+            <form action="#" id="form">
+                <input type="text" dir="auto" id="title-box" placeholder="Title" autocomplete="off">
+                <textarea class="" dir="auto" id="note-box" autocomplete="off" placeholder="Take a note..."></textarea>
+
+                <div id="note-box-buttons">
+                    <button type="submit" id="save-btn">Save
+                        <ion-icon name="add-outline"></ion-icon>
+                    </button>
+                    <button type="button" id="close-btn">Close
+                        <ion-icon name="trash-outline"></ion-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="divider" id="divider-pinned-list"></div>
+
+
+        <div><span id="pinned-list-title">
+                <ion-icon name="flag-outline" size="small"></ion-icon> Pinned
+            </span></div>
+        <!-- Start Pinned List -->
+        <div id="pinned-list">
+
+        </div>
+        <!-- End Pinned List -->
+
+        <div class="divider"></div>
+
+        <!-- Start Note List | Parent Element of NoteCards -->
+        <div id="note-list">
+
+        </div>
+        <!-- End Note List | Parent Element of NoteCards -->
+
+        <div id="empty-alert">
+            !یادداشتی وجود ندارد
+        </div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
