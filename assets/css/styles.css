@@ -7,7 +7,7 @@
 
 html {
 	font-size: 100%;
-	font-family: "ubuntu", "Vazir";
+	font-family: "Ubuntu", "Vazir";
 }
 
 body {
@@ -291,8 +291,9 @@ body {
 	line-height: 1.8;
 	font-size: 0.9rem;
 	margin: 30px 5px;
-	word-wrap: break-word;
 	display: flex;
+	word-wrap: break-word;
+	white-space: pre;
 	flex-direction: column;
 }
 
