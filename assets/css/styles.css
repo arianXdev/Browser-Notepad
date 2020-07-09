@@ -1,5 +1,4 @@
 @import "reset.css";
-
 * {
 	box-sizing: border-box;
 	outline: none;
@@ -7,7 +6,7 @@
 
 html {
 	font-size: 100%;
-	font-family: "Ubuntu", "Vazir";
+	font-family: "Ubuntu", "Vazir", sans-serif;
 }
 
 body {
@@ -118,10 +117,10 @@ body {
 	line-height: 1.8;
 	background-color: #202125;
 	color: white;
-	font-family: "Vazir";
 	font-size: 0.9rem;
 	resize: vertical;
 	word-wrap: break-word;
+	font-family: "Ubuntu", "Vazir";
 }
 
 #title-box {
@@ -136,6 +135,7 @@ body {
 	font-size: 0.95rem;
 	word-wrap: break-word;
 	display: none;
+	font-family: "Ubuntu", "Vazir";
 }
 
 #title-box.active {
@@ -159,7 +159,6 @@ body {
 	border: none;
 	color: white;
 	font-size: 15px;
-	font-family: "ubuntu";
 	transition: all 0.2s;
 	cursor: pointer;
 	display: inline-flex;
@@ -538,7 +537,6 @@ body {
 	line-height: 1.8;
 	background-color: #1e1e1e;
 	color: white;
-	font-family: "Vazir";
 	font-size: 1rem;
 	resize: vertical;
 	box-shadow: 0 0 7px 2px cyan;
@@ -561,7 +559,6 @@ body {
 	border: none;
 	color: white;
 	font-size: 15px;
-	font-family: "ubuntu";
 	transition: all 0.2s;
 	cursor: pointer;
 	display: flex;
@@ -655,7 +652,6 @@ input:checked + .slider:before {
 	resize: vertical;
 	color: white !important;
 	border: 2px solid cyan !important;
-	font-family: "Vazir", "Ubuntu";
 	font-size: 1rem !important;
 }
 
