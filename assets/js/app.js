@@ -17,7 +17,7 @@ const form = document.querySelector("#form"),
 eventListener();
 function eventListener() {
     // Collapse Note Form when outside click
-    window.addEventListener("click", function (e) {
+    window.addEventListener("click", (e) => {
         if (e.target.id == "title-box" || e.target.id == "note-box") {
             titleBox.classList.add("active");
 
@@ -57,7 +57,7 @@ function eventListener() {
 }
 
 // for toggle random border color switch
-(function () {
+(() => {
     if (localStorage.getItem("random-border") == "1") {
         randBorderBtn.setAttribute("checked", "");
         randBorderBtn.parentElement.title = "Disable Random BoderColor";
@@ -373,25 +373,25 @@ function editNoteFromLocalStorage(text, parentElement) {
     let note = parentElement.querySelector(".body-note-card p").innerText;
 
     // Edit Title Note on LocalStorage
-    notes.map(function (element, index) {
+    notes.map((element, index) => {
         notes.splice(index, 1);
         notes.splice(index, 0, element.replace(noteTitle, text[0]));
     });
 
     // Edit Body Note on LocalStorage
-    notes.map(function (element, index) {
+    notes.map((element, index) => {
         notes.splice(index, 1);
         notes.splice(index, 0, element.replace(note, text[1]));
     });
 
     // Edit Title Note on LocalStorage | for Pin Notes
-    pinNotes.map(function (element, index) {
+    pinNotes.map((element, index) => {
         pinNotes.splice(index, 1);
         pinNotes.splice(index, 0, element.replace(noteTitle, text[0]));
     });
 
     // Edit Body Note on LocalStorage | for Pin Notes
-    pinNotes.map(function (element, index) {
+    pinNotes.map((element, index) => {
         pinNotes.splice(index, 1);
         pinNotes.splice(index, 0, element.replace(note, text[1]));
     });
@@ -409,7 +409,7 @@ function localStorgeOnLoad() {
     const notes = getNoteFromLocalStorage();
     const pinNotes = getPinNotesFromLocalStorage();
 
-    notes.map(function (element) {
+    notes.map((element) => {
         const noteTitle = element.split("%$#$#$10$58725#")[0];
         const note = element.split("%$#$#$10$58725#")[1];
 
@@ -467,7 +467,7 @@ function localStorgeOnLoad() {
         emptyAlertCheck();
     });
 
-    pinNotes.map(function (element) {
+    pinNotes.map((element) => {
         const noteTitle = element.split("%$#$#$10$58725#")[0];
         const note = element.split("%$#$#$10$58725#")[1];
 
